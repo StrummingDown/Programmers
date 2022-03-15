@@ -18,3 +18,4 @@ def solution(s):
         return False # False 리턴
 
 print(solution("Py"))
+
