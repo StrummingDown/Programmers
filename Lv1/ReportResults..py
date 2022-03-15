@@ -81,4 +81,4 @@ def solution(id_list, report, k):
         answer.append(count_user[count]) # 정답 리스트에 값 추가
     return answer # 정답 리턴
 
-
+print(solution(["muzi", "frodo", "apeach", "neo"],["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"],2))
