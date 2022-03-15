@@ -9,23 +9,23 @@
 #     stop_list = [] # 정지된 유저
 #     final_list = {string : 0 for string in id_list}
 #     answer = []
-#     # print(report)
+    # print(report)
 #     for id in id_list:
 #         report_count[id] = 0; # 신고당한 횟수를 담기 위한 딕셔너리
 
 #     for report_id in ex : 
 #         report_list.append(report_id.split(' ')[1]) # 신고당한 유저를 추가
-#     # print(report_list)
+    # print(report_list)
 
 #     for i in range(0,len(report_list)):
 #         if report_list[i] in report_count : # 몇번 신고당했는지 카운트
 #             report_count[report_list[i]] += 1
-#     # print(report_count)
+    # print(report_count)
 
 #     for i in report_count: 
 #         if(report_count[i] >= k): # K번 이상 신고당했다면 
 #             stop_list.append(i) # 정지된 유저 리스트에 추가
-#     # print(stop_list)
+    # print(stop_list)
 
 #     for i in range(0, len(report)):
 #         for j in range(0, len(stop_list)):
@@ -44,9 +44,9 @@
 
 
 
-#     # answer = []
+    # answer = []
 
-#     # return answer
+    # return answer
 
 
 # 두번쨰 접근 방법 (성공 !)
