@@ -59,9 +59,6 @@ def solution(answers):
             answer.append(3)
         else:
             answer.append(3)
-    print(score1,score2,score3)
     return answer
 
-print(solution([1,2,3,4,5]))
-
-# print(max(3,3,1))
+# print(solution([1,2,3,4,5]))
