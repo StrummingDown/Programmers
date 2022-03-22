@@ -7,7 +7,6 @@ function solution(n, a, b) {
     b = Math.ceil((b = b / 2));
     answer++; // 루프가 돌때마다 경기가 진행되므로 +1
   }
-
   return answer; // 경기횟수 리턴
 }
 
