@@ -1,3 +1,6 @@
+# 문제링크
+# https://programmers.co.kr/learn/courses/30/lessons/77484
+
 def solution(lottos, win_nums):
     answer = [0,0] # 최고 순위와 최저 순위를 담아줄 정답 배열
     cntZero = 0 # 0의 갯수 (가려진 숫자)
