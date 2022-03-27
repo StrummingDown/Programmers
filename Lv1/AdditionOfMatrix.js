@@ -1,6 +1,7 @@
 // 문제링크
 // https://programmers.co.kr/learn/courses/30/lessons/12950
 
+// 내가 푼 정답
 function solution(arr1, arr2) {
   var answer = []; // 정답을 담아줄 배열
 
@@ -16,13 +17,21 @@ function solution(arr1, arr2) {
   return answer; // 합을 구한 이차원 정답 배열 리턴
 }
 
+// 너무나 간단한 다른 사람의 풀이.. 한줄 컷
+
+// function solution(arr1, arr2) {
+//   return arr1.map((a, i) => a.map((b, j) => b + arr2[i][j])); // map함수를 이용해 arr1의 각 요소에 arr2의 각 요소를 더해서 바로 리턴..
+// }
+
 console.log(
-  [
-    [1, 2],
-    [2, 3],
-  ],
-  [
-    [3, 4],
-    [5, 6],
-  ]
+  solution(
+    [
+      [1, 2],
+      [2, 3],
+    ],
+    [
+      [3, 4],
+      [5, 6],
+    ]
+  )
 );
