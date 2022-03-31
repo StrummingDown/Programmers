@@ -22,7 +22,7 @@ function solution(progresses, speeds) {
         stack++; // 다음 작업 탐색
       }
       answer.push(stack); // 정답에 stack번째 작업까지 (배포가 완료된 작업의 갯수만큼) 한번에 추가
-      progress_1.splice(0, stack); // 완료되서 정답 배열에 추가된 작업은 splice를 통해 삭제
+      progress_1.splice(0, stack); // 배포가 완료되서 정답 배열에 추가된 작업은 splice를 통해 삭제
     }
   }
   return answer; // 하루에 배포가 완료된 작업의 갯수를 담아준 배열 리턴
