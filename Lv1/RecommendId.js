@@ -56,4 +56,29 @@ function solution(new_id) {
   return answer2; // 7단계 조건까지 필터링된 문자열 리턴
 }
 
+// 정규표현식을 사용하면 코드 길이가 매우 짧아진다!
+
+// function solution(new_id) {
+//   let answer = new_id;
+//   answer = answer.toLowerCase(); // 1단계 조건
+//   answer = answer.replace(/[^a-z0-9-_.]/g, ""); // 2단계 조건
+//   answer = answer.replace(/\.+/g, "."); // 3단계 조건
+//   answer = answer.replace(/^\.|\.$/g, ""); // 4단계 조건
+//   if (!answer.length) {
+//     // 5단계 조건
+
+//     answer += "a";
+//   }
+
+//   if (answer.length > 15) {
+//     // 6단계 조건
+//     answer = answer.substring(0, 15);
+//   }
+//   answer = answer.replace(/\.$/, "");
+
+//   while (answer.length < 3) {
+//     answer += answer.charAt(answer.length - 1);
+//   }
+//   return answer;
+// }
 solution("z-+.^.");
