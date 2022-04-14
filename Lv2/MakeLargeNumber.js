@@ -3,13 +3,13 @@
 
 function solution(number, k) {
   var answer = ""; // 정답을 담아줄 변수
-  let answerStack = [0]; // 가장 큰 수를 조합하기 위한 배열
+  let answerStack = [0]; // 가장 큰 수를 조합하기 위한 배열 (비교할 첫번째 수를 담기 위해 0 할당)
   let deleteCount = 0; // 제거한 숫자 갯수 카운트
 
   for (let i = 0; i < number.length; i++) {
     // 입력받은 숫자 순회
     while (deleteCount < k && number[i] > answerStack[answerStack.length - 1]) {
-      // 제거할 숫자 카운트가 입력받은 k보다 작고, 현재 i번째 숫자가 숫자 조합의 마지막 숫자보다 크다면
+      // 제거한 숫자 카운트가 제거할 숫자 갯수 k보다 작고, 현재 i번째 숫자가 숫자 조합의 마지막 숫자보다 크다면
       answerStack.pop(); // 숫자 조합의 마지막 숫자 제거
       deleteCount++; // 제거한 숫자 카운트 +1
     }
