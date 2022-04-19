@@ -30,35 +30,34 @@
 // }
 
 // 문제 이해를 잘못해서 또 삽질한 코드 ...
+// function solution(priorities, location) {
+//   var answer = 0;
+//   let max = 0;
+
+//   let list = priorities.map((el, idx) => ({
+//     idx,
+//     value: el,
+//   }));
+
+//   for (let priority of list) {
+//     max = Math.max(max, priority.value);
+//   }
+
+//   let index = priorities.indexOf(max);
+
+//   while (index) {
+//     let move = list.shift();
+//     list.push(move);
+//     index--;
+//   }
+
+//   answer = list.findIndex((el) => el.idx === location);
+
+//   return answer + 1;
+// }
+
+// 테스트 케이스 3개를 틀리는데 추후 수정이 필요하다 ..
 function solution(priorities, location) {
-  var answer = 0;
-  let max = 0;
-
-  let list = priorities.map((el, idx) => ({
-    idx,
-    value: el,
-  }));
-
-  for (let priority of list) {
-    max = Math.max(max, priority.value);
-  }
-
-  let index = priorities.indexOf(max);
-
-  while (index) {
-    let move = list.shift();
-    list.push(move);
-    index--;
-  }
-
-  answer = list.findIndex((el) => el.idx === location);
-
-  return answer + 1;
-}
-
-function solution(priorities, location) {
-  var answer = 0;
-
   let cnt = 0;
   let list = priorities.map((el, idx) => ({
     idx,
@@ -67,25 +66,35 @@ function solution(priorities, location) {
   let copy = list.slice();
 
   for (let el of list) {
-    const max = Math.max.apply(
-      Math,
-      list.map((i) => {
-        return i.value;
-      })
-    );
     for (let i = 1; i < copy.length; i++) {
-      console.log(copy, location);
-      if (copy[i].idx === location) {
-        console.log("진입");
-        let answer = copy.findIndex((el) => el.idx === location);
-        return answer;
-      } else if (el.value > max) {
+      let max = Math.max.apply(
+        Math,
+        copy.map((i) => {
+          return i.value;
+        })
+      );
+      console.log(copy, max);
+      let check = copy.filter((el) => el.value === copy[0].value);
+
+      if (copy[0].value >= max && check.length < 2) {
+        // console.log("엘스이프");
+        if (copy[0].idx === location && copy[0].value >= max) {
+          // console.log("진입");
+          return cnt + 1;
+        }
         copy.shift();
+        cnt++;
+      } else if (copy[0].idx === location && copy[0].value >= max) {
+        // console.log("진입");
+        return cnt + 1;
+      } else if (copy[0].value >= max) {
+        copy.shift();
+        cnt++;
       } else {
+        // console.log("진입2");
         let move = copy.shift();
         copy.push(move);
       }
-      cnt++;
     }
   }
   // list.sort((a, b) => b.value - a.value);
@@ -108,4 +117,4 @@ function solution(priorities, location) {
 
   // return answer + 1;
 }
-console.log(solution([1, 1, 9, 1, 1, 1], 0));
+console.log(solution([2, 3, 3, 2, 9, 3, 3], 3));
