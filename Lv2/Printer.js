@@ -56,8 +56,32 @@
 //   return answer + 1;
 // }
 
+// list.sort((a, b) => b.value - a.value);
+// console.log(list);
+// answer = list.findIndex((el) => el.idx === location);
+
+// for (let priority of list) {
+//   max = Math.max(max, priority.value);
+// }
+
+// let index = priorities.indexOf(max);
+
+// while (index) {
+//   let move = list.shift();
+//   list.push(move);
+//   index--;
+// }
+
+// answer = list.findIndex((el) => el.idx === location);
+// return answer + 1;
+
 // 테스트 케이스 3개를 틀리는데 추후 수정이 필요하다 ..
+// 입력받은 lcoation이 마지막까지 남아있을때 리턴을 안해줘서 이 사단이 났다.
+// 정답이지만 코드 리팩토링을 통해 줄여야겠다 !!
 function solution(priorities, location) {
+  if (priorities.length === 1) {
+    return 1;
+  }
   let cnt = 0;
   let list = priorities.map((el, idx) => ({
     idx,
@@ -77,44 +101,22 @@ function solution(priorities, location) {
       let check = copy.filter((el) => el.value === copy[0].value);
 
       if (copy[0].value >= max && check.length < 2) {
-        // console.log("엘스이프");
         if (copy[0].idx === location && copy[0].value >= max) {
-          // console.log("진입");
           return cnt + 1;
         }
         copy.shift();
         cnt++;
       } else if (copy[0].idx === location && copy[0].value >= max) {
-        // console.log("진입");
         return cnt + 1;
       } else if (copy[0].value >= max) {
         copy.shift();
         cnt++;
       } else {
-        // console.log("진입2");
         let move = copy.shift();
         copy.push(move);
       }
     }
   }
-  // list.sort((a, b) => b.value - a.value);
-  // console.log(list);
-  // answer = list.findIndex((el) => el.idx === location);
-
-  // for (let priority of list) {
-  //   max = Math.max(max, priority.value);
-  // }
-
-  // let index = priorities.indexOf(max);
-
-  // while (index) {
-  //   let move = list.shift();
-  //   list.push(move);
-  //   index--;
-  // }
-
-  // answer = list.findIndex((el) => el.idx === location);
-
-  // return answer + 1;
+  return cnt + 1;
 }
-console.log(solution([2, 3, 3, 2, 9, 3, 3], 3));
+console.log(solution([1, 1, 3], 1));
