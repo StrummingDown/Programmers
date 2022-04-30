@@ -16,7 +16,7 @@ function solution(s) {
       return answer; // 반복문을 돌면서 담긴 answer 리턴
     }
 
-    s = change.toString(2); // s에 위 과정을 거치고 남은 수를 이진수로 변환해서 재할당
+    s = change.toString(2); // 위 과정을 거쳐 1이 남은 문자열을 이진수로 변환해서 재할당
   }
 }
 
