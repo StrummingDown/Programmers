@@ -88,16 +88,16 @@ function solution(priorities, location) {
     value: el,
   }));
   let copy = list.slice(); // 인쇄 리스트를 변형시키기 위해 복사해준다.
-
+  console.log(list);
   for (let _ of list) {
     // 위에서 만들어준 인쇄리스트 객체를 순회
     for (let i = 1; i < list.length; i++) {
       // 각 요소들의 우선순위를 비교하기 위해 이중 반복문 사용
       let max = Math.max.apply(
         // 현재 가장 높은 우선순위가 몇인지 구해서 max에 할당
-        Math,
-        copy.map((i) => {
-          return i.value;
+        null,
+        copy.map((el) => {
+          return el.value;
         })
       );
 
@@ -109,10 +109,6 @@ function solution(priorities, location) {
         }
         copy.shift(); // 인쇄가 완료되므로 대기 목록에서 제거
         cnt++; // 인쇄된 문서 카은트 +1
-      } else if (copy[0].value >= max) {
-        // 현재 요소의 우선순위가 가장 크다면,
-        copy.shift(); // 인쇄가 완료되므로 대기 목록에서 제거
-        cnt++; // 인쇄된 문서 카운트 +1
       } else {
         // 현재 요소가 인쇄가 완료되지 않았다면,
         let move = copy.shift(); // 맨앞에서 맨뒤로 이동
